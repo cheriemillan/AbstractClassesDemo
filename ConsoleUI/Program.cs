@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 
 namespace ConsoleUI
 {
@@ -46,6 +47,26 @@ namespace ConsoleUI
              */
 
             // Call each of the drive methods for one car and one motorcycle
+            List<Vehicle> vechicles = new List<Vehicle>();
+            {
+             vechicles.Add(new Car { Year = 2009, Make = "Carmy", Model = "Ford", HasTrunk = false });
+             vechicles.Add(new Motorcycle { Year = 2019, Make = "Voger", Model = "Massimo", HasSideCart = true });
+            };
+            Vehicle myCar = new Car { Year = 2023, Make = "Ford", Model = "Ducati", HasTrunk = true };
+            Vehicle myMotorcycle = new Motorcycle { Year = 2010, Make = "Ducati", Model = "Panigale", HasSideCart = false };
+            
+            vechicles.Add(myCar);
+            vechicles.Add(myMotorcycle);
+
+            foreach (var v in vechicles)
+            {
+             Console.WriteLine($"{v.Make}, {v.Model}, {v.Year}");
+             v.DriveAbstract();
+             v.DriveVirtual();
+            }
+            
+          
+            
 
             #endregion            
             Console.ReadLine();
